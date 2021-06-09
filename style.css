@@ -5,7 +5,16 @@
 
 img {
   width: 700px;
+  height: 500px;
   text-align: center;
+}
+
+.visible {
+  display: block;
+}
+
+.invisible {
+  display: none;
 }
 
 .prev-image,

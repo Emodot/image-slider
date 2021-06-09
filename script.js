@@ -1,26 +1,28 @@
-var slider = document.getElementById('slider-box');
-var image = ['image-1','image-2','image-3','image-4'];
-
-var i = image.length;
+var slider = document.querySelectorAll('.slider-box img')
 
 function next(){
-    if (i<image.length) {
-        i= i+1;
-    }else{
-        i = 1;
-    }
-      slider.innerHTML = "<img src=img/"+image[i-1]+".jpeg>";
-}
+    for (var i  = 0; i < slider.length; i++) {
+        if (slider[i].classList.contains('visible')) {
+            slider[i].classList.remove('visible')
+            slider[i].classList.add('invisible')
 
-function prev(){
-    if (i<image.length+1 && i>1) {
-        i= i-1;
-    }else{
-        i = image.length;
-    }
-      slider.innerHTML = "<img src=img/"+image[i-1]+".jpeg>";
-}
+            slider[i + 1].classList.add('visible')
+            slider[i + 1].classList.remove('invisible')
+        }
+        else {
+            slider[i].classList.remove('invisible')
+            slider[i].classList.add('visible')
 
+            slider[i + 1].classList.remove('visble')
+            slider[i + 1].classList.add('invisble')
+        }break
+    }
+}
+// function prev(){
+//     for (var i  = 0; i < slider.length; i++) {
+//         console.log(slider[i])
+//     }
+// }
 
 
 // slideImages()
